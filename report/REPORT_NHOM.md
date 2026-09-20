@@ -154,14 +154,14 @@ Phụ thuộc vào cấu trúc của tài liệu và loại query, mỗi chiến
 
 | # | Câu hỏi | Chiến lược tốt nhất cho câu này | Có chunk liên quan trong top-3? | Ghi chú |
 |---|---------|-------------------------------|-------------------------------|---------|
-| 1 | Trường UET gia hạn nộp học phí đến khi nào? | SentenceChunker / RecursiveChunker | | |
-| 2 | Quy trình đóng học phí trực tuyến của sinh viên USTH | HeadingChunker | | |
-| 3 | Đối với các khoá 2021 trở về trước thì học bằng kép ở UET mất bao nhiêu tiền 1 tín chỉ? | RecursiveChunker | | |
-| 4 | Chương trình định hướng ứng dụng (POHE) của NEU có học phí bao nhiêu? | SentenceChunker / RecursiveChunker | | |
-| 5 | Theo lộ trình được duyệt thì mức thu học phí đối với sinh viên quốc tế là bao nhiêu? | RecursiveChunker + Metadata Filter | | |
+| 1 | Trường Đại học Công Nghệ gia hạn nộp học phí học kỳ II năm học 2025-2026 đến khi nào? | SentenceChunker / RecursiveChunker | Đúng | |
+| 2 | Hướng dẫn đóng học phí học kỳ II năm 2025-2026 qua hệ thống ERP của sinh viên USTH | HeadingChunker | Đúng | |
+| 3 | Đối với các khoá 2021 trở về trước thì học bằng kép ở Trường Đại học Công Nghệ năm học 2024-2025 hết bao nhiêu tiền 1 tín chỉ? | RecursiveChunker | Đúng | |
+| 4 | Chương trình định hướng ứng dụng POHE của NEU năm học 2025-2026 có học phí bao nhiêu? | SentenceChunker / RecursiveChunker | Đúng | |
+| 5 | Theo lộ trình được duyệt thì mức thu học phí đối với sinh viên quốc tế là bao nhiêu? | RecursiveChunker + Metadata Filter | Đúng | |
 
 **Lọc bằng metadata có giúp ích không? Ở câu hỏi nào?**
-Có. Khi tìm kiếm mức học phí sinh viên quốc tế mà không lọc metadata, công cụ truy xuất bị nhiễu bởi văn bản của UET (`audience: student`). Khi áp dụng `metadata_filter={"audience": "staff"}`, toàn bộ tài liệu sinh viên bị loại bỏ, giúp hệ thống định vị chính xác Báo cáo lộ trình nội bộ của USSH.
+Có. Khi tìm kiếm mức học phí sinh viên quốc tế mà không lọc metadata, công cụ truy xuất bị nhiễu bởi văn bản của Trường Đại học Công Nghệ (`audience: student`). Khi áp dụng `metadata_filter={"audience": "staff"}`, toàn bộ tài liệu sinh viên bị loại bỏ, giúp hệ thống định vị chính xác Báo cáo lộ trình nội bộ của USSH.
 ---
 
 ## 4. Thuyết trình (Demo) & Bài học nhóm — Nhóm (5 điểm)
