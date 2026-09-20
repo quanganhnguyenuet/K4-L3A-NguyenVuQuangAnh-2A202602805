@@ -1,0 +1,93 @@
+BENCHMARK RETRIEVAL — HỌC PHÍ ĐẠI HỌC
+Corpus: data\hocbong_hocphi
+Chiến lược chunking: recursive | chunk_size: 700
+Embedding: TF-IDF unigram + bigram (lexical baseline)
+Tài liệu nguồn: 11 | Chunks đã nạp: 89
+Bộ câu hỏi: benchmark.jsonl
+Lưu ý: score chỉ dùng để xếp hạng; luôn đọc excerpt và đối chiếu gold evidence.
+
+QUERY 1: Sinh viên Việt Nam học chương trình đại học đơn bằng ở USTH phải đóng bao nhiêu học phí học kỳ II năm học 2025-2026? Đóng trong khoảng thời gian nào, và nếu không đóng đúng hạn thì hậu quả là gì?
+Gold answer: Mức phí là 28,0 triệu đồng/học kỳ. Thời gian đóng từ 23/01/2026 đến hết ngày 05/02/2026. Sinh viên không đóng đúng hạn sẽ không được tham gia các học phần của học kỳ II năm học 2025-2026.
+Nguồn kiểm chứng: usth-tuition-semester-2-2025-2026.md
+  A. Không lọc metadata (top-3):
+  Gold document in top-3: YES | Ít nhất một gold-evidence span trong top-3: YES
+    #1 score=0.3003 doc_id=usth-tuition-semester-2-2025-2026 chunk=2
+       audience=student | title=Thông báo thu học phí học kỳ II năm học 2025-2026 hệ đại học
+       Ngành Kỹ thuật Hàng không (3 năm tại Trường, 1 năm tại VAECO) 62,5 Không áp dụng Ngành Kỹ thuật Hàng không (3 năm tại Trường) 50,0 70,25 Các chương trình đại học (song bằng) 39,5 50,0 Ngành Dược học 36,75 Không áp dụng Các chương trình đại học (đơn bằng) 28...
+    #2 score=0.2371 doc_id=usth-tuition-semester-2-2025-2026 chunk=1
+       audience=student | title=Thông báo thu học phí học kỳ II năm học 2025-2026 hệ đại học
+       Cổng thông tin việc làm Gương mặt sinh viên Cựu sinh viên Hoạt động nổi bật Gương mặt tiêu biểu USTH thông báo thu học phí học kỳ II năm học 2025–2026 cho sinh viên đại học. Thời gian đóng từ 23/01/2026 đến 05/02/2026. 1. Đối tượng áp dụng Sinh viên thuộc m...
+    #3 score=0.2030 doc_id=uet-tuition-payment-extension-2025-2026 chunk=0
+       audience=student | title=Gia hạn thời gian nộp học phí trong học kỳ II năm học 2025-2026
+       # Gia hạn thời gian nộp học phí trong học kỳ II năm học 2025-2026 Gia hạn thời gian nộp học phí trong HKII năm học 2025-2026 - Trường Đại học Công Nghệ - Đại học Quốc Gia Hà Nội Bỏ qua đến nội dung chính Trở lại Học phí, học bổng Trang chủ Sinh viên Học phí...
+  B. Có lọc metadata {'audience': 'student'} (top-3):
+  Gold document in top-3: YES | Ít nhất một gold-evidence span trong top-3: YES
+    #1 score=0.3003 doc_id=usth-tuition-semester-2-2025-2026 chunk=2
+       audience=student | title=Thông báo thu học phí học kỳ II năm học 2025-2026 hệ đại học
+       Ngành Kỹ thuật Hàng không (3 năm tại Trường, 1 năm tại VAECO) 62,5 Không áp dụng Ngành Kỹ thuật Hàng không (3 năm tại Trường) 50,0 70,25 Các chương trình đại học (song bằng) 39,5 50,0 Ngành Dược học 36,75 Không áp dụng Các chương trình đại học (đơn bằng) 28...
+    #2 score=0.2371 doc_id=usth-tuition-semester-2-2025-2026 chunk=1
+       audience=student | title=Thông báo thu học phí học kỳ II năm học 2025-2026 hệ đại học
+       Cổng thông tin việc làm Gương mặt sinh viên Cựu sinh viên Hoạt động nổi bật Gương mặt tiêu biểu USTH thông báo thu học phí học kỳ II năm học 2025–2026 cho sinh viên đại học. Thời gian đóng từ 23/01/2026 đến 05/02/2026. 1. Đối tượng áp dụng Sinh viên thuộc m...
+    #3 score=0.2030 doc_id=uet-tuition-payment-extension-2025-2026 chunk=0
+       audience=student | title=Gia hạn thời gian nộp học phí trong học kỳ II năm học 2025-2026
+       # Gia hạn thời gian nộp học phí trong học kỳ II năm học 2025-2026 Gia hạn thời gian nộp học phí trong HKII năm học 2025-2026 - Trường Đại học Công Nghệ - Đại học Quốc Gia Hà Nội Bỏ qua đến nội dung chính Trở lại Học phí, học bổng Trang chủ Sinh viên Học phí...
+
+QUERY 2: Một sinh viên khóa 68 (tuyển sinh năm 2026) hệ đại trà của NEU đăng ký 15 tín chỉ trong một học kỳ năm học 2026-2027 thì phải đóng bao nhiêu học phí? Nếu là sinh viên khóa 66 thì bao nhiêu?
+Gold answer: Khóa 68 đóng 15 × 880.000 = 13.200.000 đồng. Khóa 66 thuộc nhóm khóa 65, 66, 67 (770.000 đồng/tín chỉ) nên đóng 15 × 770.000 = 11.550.000 đồng.
+Nguồn kiểm chứng: neu-tuition-decision-985-2026-2027.md
+  A. Không lọc metadata (top-3):
+  Gold document in top-3: YES | Ít nhất một gold-evidence span trong top-3: YES
+    #1 score=0.2668 doc_id=neu-tuition-decision-985-2026-2027 chunk=2
+       audience=student | title=Học phí NEU năm học 2026-2027 theo Quyết định 985
+       Đại học Kinh tế Quốc dân vừa ban hành Quyết định số 985/QĐ-ĐHKTQD ngày 10/8/2026, quy định mức thu học phí các hệ đào tạo năm học 2026-2027. Quyết định do Giám đốc Đại học, PGS.TS Bùi Đức Thọ, ký, có hiệu lực từ ngày 01/8/2026 đến hết ngày 31/7/2027 và thay...
+    #2 score=0.1794 doc_id=neu-tuition-decision-985-2026-2027 chunk=5
+       audience=student | title=Học phí NEU năm học 2026-2027 theo Quyết định 985
+       53 triệu đồngKỹ thuật phần mềm; Kinh tế số*; Toán ứng dụng*; Thống kê và Trí tuệ kinh doanh*; Khoa học tính toán trong Tài chính và Bảo hiểm – Actuary; Phân tích dữ liệu kinh tế; Quản trị rủi ro định lượng* 54 triệu đồngKhoa học dữ liệu – Data Science; Trí ...
+    #3 score=0.1566 doc_id=ussh-tuition-roadmap-2026-2027 chunk=10
+       audience=staff | title=Báo cáo lộ trình thu học phí các hệ năm học 2026-2027
+       2.4.1. Các ngành đã được kiểm định chất lượng và xây dựng định mức kinh tế - kỹ thuật (áp dụng chính thức sau khi được Đại học Quốc gia phê duyệt): - Ngành Hàn Quốc học. Mức thu: 1.050.000đ/tín chỉ. Hình thức thu: Thu theo tín chỉ đăng ký học. - Các ngành H...
+
+QUERY 3: Theo Quyết định 985 của NEU, học phí ngành Kỹ thuật phần mềm chương trình tiếng Anh năm học 2026-2027 là bao nhiêu và tăng bao nhiêu so với năm học 2025-2026?
+Gold answer: Học phí năm 2026-2027 là 53 triệu đồng/năm, tăng 3 triệu đồng (6%) so với mức 50 triệu đồng của năm học 2025-2026.
+Nguồn kiểm chứng: neu-tuition-decision-985-2026-2027.md
+  A. Không lọc metadata (top-3):
+  Gold document in top-3: YES | Ít nhất một gold-evidence span trong top-3: YES
+    #1 score=0.2432 doc_id=neu-tuition-decision-985-2026-2027 chunk=7
+       audience=student | title=Học phí NEU năm học 2026-2027 theo Quyết định 985
+       So với năm học 2025-2026, phần lớn chương trình tiếng Anh khối Trường Công nghệ tăng học phí: Kỹ thuật phần mềm tăng từ 50 lên 53 triệu đồng, Khoa học dữ liệu và Trí tuệ nhân tạo tăng từ 51 lên 54 triệu đồng, các chuyên ngành Toán Kinh tế tăng từ 50 lên 53 ...
+    #2 score=0.1657 doc_id=neu-tuition-decision-985-2026-2027 chunk=8
+       audience=student | title=Học phí NEU năm học 2026-2027 theo Quyết định 985
+       Quyết định 985/QĐ-ĐHKTQD thay thế toàn bộ văn bản học phí trước đây, áp dụng thống nhất cho năm học 2026-2027; mức thu tăng nhẹ, phổ biến từ 2 đến 6%, tập trung ở các chương trình đào tạo bằng tiếng Anh và hệ đại trà khóa mới tuyển sinh, trong khi một số ch...
+    #3 score=0.1484 doc_id=neu-tuition-decision-985-2026-2027 chunk=3
+       audience=student | title=Học phí NEU năm học 2026-2027 theo Quyết định 985
+       Học phí tính theo tháng, thu đủ 10 tháng mỗi năm học, áp dụng thống nhất cho các khóa 64 đến 68, không đổi so với năm học 2025-2026. Chương trìnhHọc phí/thángHọc phí/năm Chất lượng cao (CLC)5.500.000 đồng55 triệu đồng POHE (định hướng ứng dụng)5.500.000 đồn...
+
+QUERY 4: UET gia hạn nộp học phí học kỳ II năm học 2025-2026 đến ngày nào? Hạn gốc là ngày nào và việc gia hạn áp dụng cho những sinh viên nào?
+Gold answer: Hạn gốc là 20/5/2026 (theo thông báo ngày 14/4/2026). Nhà trường gia hạn đến hết ngày 26/5/2026, chỉ áp dụng cho các sinh viên có tên trong danh sách chưa hoàn thành nghĩa vụ nộp học phí tính đến ngày 21/5/2026. Sau thời gian này, sinh viên chưa nộp bị xử lý theo thông báo ngày 20/5/2026.
+Nguồn kiểm chứng: uet-tuition-payment-extension-2025-2026.md
+  A. Không lọc metadata (top-3):
+  Gold document in top-3: YES | Ít nhất một gold-evidence span trong top-3: YES
+    #1 score=0.3629 doc_id=uet-tuition-payment-extension-2025-2026 chunk=0
+       audience=student | title=Gia hạn thời gian nộp học phí trong học kỳ II năm học 2025-2026
+       # Gia hạn thời gian nộp học phí trong học kỳ II năm học 2025-2026 Gia hạn thời gian nộp học phí trong HKII năm học 2025-2026 - Trường Đại học Công Nghệ - Đại học Quốc Gia Hà Nội Bỏ qua đến nội dung chính Trở lại Học phí, học bổng Trang chủ Sinh viên Học phí...
+    #2 score=0.1919 doc_id=uet-tuition-payment-extension-2025-2026 chunk=1
+       audience=student | title=Gia hạn thời gian nộp học phí trong học kỳ II năm học 2025-2026
+       Tính đến ngày 21/5/2026, vẫn còn sinh viên chưa hoàn thành nghĩa vụ nộp học phí (danh sách kèm theo). Nhà trường gia hạn thời gian nộp học phí cho các sinh viên có tên trong danh sách nói trên đến hết ngày 26/5/2026. Đề nghị các sinh viên nghiêm túc thực hi...
+    #3 score=0.1703 doc_id=usth-tuition-semester-2-2025-2026 chunk=1
+       audience=student | title=Thông báo thu học phí học kỳ II năm học 2025-2026 hệ đại học
+       Cổng thông tin việc làm Gương mặt sinh viên Cựu sinh viên Hoạt động nổi bật Gương mặt tiêu biểu USTH thông báo thu học phí học kỳ II năm học 2025–2026 cho sinh viên đại học. Thời gian đóng từ 23/01/2026 đến 05/02/2026. 1. Đối tượng áp dụng Sinh viên thuộc m...
+
+QUERY 5: Học phí một tín chỉ chương trình đào tạo chuẩn của Đại học Bách khoa Hà Nội năm học 2024-2025 là bao nhiêu?
+Gold answer: Không đủ thông tin trong dữ liệu. Trang HUST chỉ dẫn link 'xem tại đây' tới các bảng học phí, còn bảng số liệu không có trong tài liệu. Dữ liệu chỉ nêu: học phần Kỹ sư chuyên sâu tính bằng mức của chương trình đại học chính quy chuẩn tương ứng; Kỹ sư chuyên sâu GenAI bằng mức của IT-E10; chế độ miễn giảm không áp dụng cho các học phần Kỹ sư chuyên sâu.
+Nguồn kiểm chứng: hust-tuition-2024-2025.md
+  A. Không lọc metadata (top-3):
+  Gold document in top-3: YES | Ít nhất một gold-evidence span trong top-3: YES
+    #1 score=0.2992 doc_id=hust-tuition-2024-2025 chunk=1
+       audience=student | title=Thông báo về mức học phí đối với các chương trình đào tạo năm học 2024-2025
+       Sau đại học Vừa làm vừa học Dịch vụ Thông báo về mức học phí đối với các chương trình đào tạo năm học 2024-2025 THÔNG BÁO Về mức học phí đối với các chương trình đào tạo năm học 2024-2025 Ban Đào tạo thông báo về mức học phí năm học 2024-2025 áp dụng đối vớ...
+    #2 score=0.2992 doc_id=hust-tuition chunk=1
+       audience=student | title=Thông báo về mức học phí đối với các chương trình đào tạo năm học ２０２４－２０２５
+       Sau đại học Vừa làm vừa học Dịch vụ Thông báo về mức học phí đối với các chương trình đào tạo năm học 2024-2025 THÔNG BÁO Về mức học phí đối với các chương trình đào tạo năm học 2024-2025 Ban Đào tạo thông báo về mức học phí năm học 2024-2025 áp dụng đối vớ...
+    #3 score=0.2265 doc_id=hanu-tuition-2025-2026 chunk=0
+       audience=student | title=Mức thu học phí năm học 2025-2026 các chương trình đào tạo
+       # Mức thu học phí năm học 2025-2026 các chương trình đào tạo Mức thu học phí năm học 2025-2026 các chương trình đào tạo đối với các khoá tuyển sinh năm học 2022-2023, 2023-2024 và 2024-2025 của Trường Đại học Hà Nội search personĐĂNG NHẬP Tiếng Việt E...

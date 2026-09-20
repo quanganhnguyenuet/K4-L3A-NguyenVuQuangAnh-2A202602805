@@ -1,16 +1,16 @@
 ---
 doc_id: "uet-tuition-2024-2025"
-title: "Quy định định mức học phí đào tạo đại học năm học 2024-2025"
+title: "Quy định định mức học phí đào tạo đại học năm học ２０２４－２０２５"
 source_url: "https://uet.edu.vn/dinh-muc-hoc-phi-dao-tao-dai-hoc-nam-hoc-2024-2025/"
 retrieved_at: "2026-09-19"
-document_version: "2024-2025"
+document_version: "２０２４－２０２５"
 audience: "student"
 department: "finance"
 category: "tuition"
 language: "vi"
 ---
 
-# Quy định định mức học phí đào tạo đại học năm học 2024-2025
+# Quy định định mức học phí đào tạo đại học năm học ２０２４－２０２５
 
 Quy định định mức học phí đào tạo đại học năm học 2024-2025 - Trường Đại học Công Nghệ - Đại học Quốc Gia Hà Nội
 
